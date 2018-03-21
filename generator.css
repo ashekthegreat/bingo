@@ -1,0 +1,50 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif, Arial;
+}
+h1{
+    font-size: 36px;
+    text-align: center;
+    margin: 0 0 15px 0;
+    line-height: 36px;
+    font-family: cursive;
+    font-weight: 300;
+}
+
+table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+.sheets{
+
+}
+.sheet-container{
+    padding: 0 0.3in;
+}
+.sheet{
+
+}
+.box{
+    border: 1px solid #666;
+}
+.box + .box{
+    margin-top: 15px;
+}
+.box td{
+    border: 1px solid #999;
+    text-align: center;
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 16px;
+}
+.box td:nth-child(1){
+    border-radius: 5px 0 0 0;
+}
+.footer{
+    font-size: 10px;
+    text-align: right;
+    font-style: italic;
+    margin-top: 5px;
+}

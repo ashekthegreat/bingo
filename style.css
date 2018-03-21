@@ -1,0 +1,111 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif, Arial;
+}
+.controls{
+    height: 32vh;
+
+}
+.controls-table{
+    width: 100%;
+    table-layout: fixed;
+}
+.controls-table td:first-child{
+    width: 25vw;
+}
+.controls-table td:last-child{
+    width: 25vw;
+}
+.counter{
+    text-align: center;
+    line-height: 32vh;
+    font-size: 32vh;
+    color: #15659d;
+    font-weight: 600;
+}
+.counter .digit {
+    width: 20vh;
+    display: inline-block!important;
+    float: none!important;
+}
+.history{
+    height: 4vh;
+    font-size: 12px;
+    background: #f1f1f1;
+    box-shadow: 0 1px 0 0 #ddd inset;
+    color: #666;
+    padding: 0.5vh 10px;
+    font-weight: 600;
+}
+.slots{
+    height: 63vh;
+}
+.slot{
+    width: 10%;
+    height: 7vh;
+    line-height: 7vh;
+    font-size: 4.5vh;
+
+    background: #bcdef6;
+    color: #fff;
+    box-shadow: -1px -1px 0 0 #fff inset;
+    display: inline-block;
+    text-align: center;
+
+    transition: all 1s;
+}
+.slot.active{
+    background: #1b82ca;
+}
+
+
+/* Button */
+.btn {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #78737d;
+    text-decoration: none;
+}
+
+.btn.disabled,
+.btn:disabled {
+    background-color: #DFDFDF !important;
+    box-shadow: none;
+    color: #9F9F9F !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.btn.disabled:hover {
+    background-color: #DFDFDF !important;
+    color: #9F9F9F !important;
+}
+
+.btn-go{
+    width: 100%;
+    display: block;
+    height: 32vh;
+    margin: 0;
+    vertical-align: top;
+    font-size: 16vh;
+    overflow: hidden;
+    background: #1b82ca;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-go:hover {
+    background-color: #15659d;
+    text-decoration: none;
+}
