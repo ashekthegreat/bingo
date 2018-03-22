@@ -1,22 +1,32 @@
 $(document).ready(function () {
-    
 
-    function getAvailableRowIndexes(cards, column){
+    function getFilledCountInRow(row){
+        return (_.filter(row, function(v){
+            return (v>0);
+        })).length;
+    }
+
+    function getAvailableRowIndexes(cards, column, number){
         var rowIndexes = [];
 
         var availableCards = _.filter(cards, function(card, indx){
             var sum = card[0][column] + card[1][column] + card[2][column];
             if(sum==0){
-                rowIndexes.push(indx*3);
-                rowIndexes.push(indx*3+1);
-                rowIndexes.push(indx*3+2);
+                if(getFilledCountInRow(card[0]) <5){
+                    rowIndexes.push(indx*3+0);
+                }
+                if(getFilledCountInRow(card[1]) <5){
+                    rowIndexes.push(indx*3+1);
+                }
+                if(getFilledCountInRow(card[2]) <5){
+                    rowIndexes.push(indx*3+2);
+                }
             }
             return ( sum == 0);
         });
 
         if(!availableCards.length){
             availableCards = cards;
-            var full;
 
             for(var i=0; i<availableCards.length; i++){
                 for(var j=0; j<3; j++){
@@ -25,34 +35,41 @@ $(document).ready(function () {
                         continue;
                     } else{
                         // lets check if 5 slots already filled up
-                        full = _.filter(availableCards[i][j], function(v){
-                            return (v>0);
-                        });
-                        if(full.length <5){
+                        if(getFilledCountInRow(availableCards[i][j]) <5){
                             rowIndexes.push(i*3+j);
                         }
                     }
                 }
             }
         }
-
-
+        if(!rowIndexes.length){
+            // still not found assign any empty row then
+            console.log("Special case for column: " + column);
+            console.log("Offending number: " + number);
+            for(var i=0; i<cards.length; i++){
+                for(var j=0; j<3; j++){
+                    if(cards[i][j][column]==0){
+                        // already filled up
+                        rowIndexes.push(i*3+j);
+                    }
+                }
+            }
+        }
         return rowIndexes
     }
 
     function assignNumber(cards, number, column) {
-        var availableRowIndexes = getAvailableRowIndexes(cards, column);
+        var availableRowIndexes = getAvailableRowIndexes(cards, column, number);
         var chosen = _.sample(availableRowIndexes);
         var cardIndex = parseInt(chosen/3, 10);
         var rowIndex = chosen % 3;
 
-        //if(column==0){
-
-            //console.log(number);
-            //console.log(availableRowIndexes);
-            //console.log("chosen: " + chosen);
-            //console.log("rowIndex: " + rowIndex);
-        //}
+        if(!availableRowIndexes.length){
+            console.log(number);
+            console.log(availableRowIndexes);
+            console.log("chosen: " + chosen);
+            console.log("rowIndex: " + rowIndex);
+        }
         cards[cardIndex][rowIndex][column] = number;
 
         return cards;
@@ -105,8 +122,9 @@ $(document).ready(function () {
         }
         return card;
     }
-
+    var cnt = 0;
     $(".sheet").each(function () {
+        console.log("Sheet " + (++cnt));
         var $sheet = $(this);
         $sheet.empty();
 

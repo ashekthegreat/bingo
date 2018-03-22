@@ -48,3 +48,8 @@ table{
     font-style: italic;
     margin-top: 5px;
 }
+
+@page{
+    margin-left: 0cm;
+    margin-right: 0cm;
+}
