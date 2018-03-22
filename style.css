@@ -38,6 +38,9 @@ html, body{
     padding: 0.5vh 10px;
     font-weight: 600;
 }
+.slots-table{
+    width: 100%;
+}
 .slots{
     height: 63vh;
 }
@@ -73,10 +76,12 @@ html, body{
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
+    background: #ccc;
 }
 .btn:hover {
     background-color: #78737d;
     text-decoration: none;
+    color: #fff;
 }
 
 .btn.disabled,
@@ -108,4 +113,82 @@ html, body{
 .btn-go:hover {
     background-color: #15659d;
     text-decoration: none;
+}
+.clear{
+
+}
+
+.calculator{
+    padding: 0 20px;
+}
+.calculator .form-input{
+    margin-bottom: 5px;
+}
+.calculator label{
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+}
+.calculator input{
+    display: inline-block;
+    width: 80%;
+    padding: 2px 10px;
+    box-sizing: border-box;
+}
+.calculator input[disabled]{
+    background: #eee;
+}
+.calculator .btn{
+    display: block;
+    width: 80%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .controls{
+        height: 100vh;
+
+    }
+    .controls-table td{
+        display: block;
+        width: 100%!important;
+    }
+    .controls-table td:nth-child(1){
+        height: 10vh;
+    }
+    .controls-table td:nth-child(2){
+        height: 80vh;
+    }
+    .controls-table td:nth-child(3){
+        height: 10vh;
+    }
+    .btn-go{
+        width: 100%;
+        height: 10vh;
+        display: block;
+        font-size: 8vh;
+        font-weight: bold;
+        line-height: 10vh;
+    }
+
+    .history{
+        height: auto;
+    }
+    .slots-table td{
+        display: block;
+        width: 100%!important;
+    }
+    .slot{
+        font-size: 16px;
+    }
+    .counter{
+        height: 80vh;
+        line-height: 80vh;
+        font-size: 40vh;
+    }
+    .clear{
+        margin-top: 2vh;
+    }
+    .calculator{
+        padding: 20px;
+    }
 }
