@@ -172,6 +172,9 @@ html, body{
 
     .history{
         height: auto;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 18px;
     }
     .slots-table td{
         display: block;
