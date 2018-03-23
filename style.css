@@ -24,10 +24,19 @@ html, body{
     color: #15659d;
     font-weight: 600;
 }
+
 .counter .digit {
     width: 20vh;
     display: inline-block!important;
     float: none!important;
+}
+.hint{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #666666;
 }
 .history{
     height: 4vh;

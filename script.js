@@ -1,5 +1,31 @@
 $(document).ready(function () {
 
+    var hints = Array(91);
+    for(var t=0; t<90; t++){
+        hints[t] = "";
+    }
+    hints[1] = "Jersey of Sabbir Rahaman, Single number One";
+    hints[2] = "Barisaler vashay tui r mui - single number dui";
+    hints[3] = "School e lukhaya khaici Biri, Single Number Three";
+    hints[4] = "Kids love dinosor, here is the number Four";
+    hints[7] = "Cha khaben, Modhur Canteen e Jaben - Number Seven";
+    hints[9] = "Gopi Gain Bagha Bain - Single number 9";
+    hints[10] = "Uttamer pashe Suchitra Sen, number Ten";
+    hints[11] = "Somantoral Rail Line, 1 and 1 Eleven";
+    hints[13] = "Unlucky thirteen";
+    hints[14] = "Saad, Who is your Valentine - Here is the number Fourteen";
+    hints[19] = "She looks fine - 1 and Nine - Nineteen";
+    hints[21] = "Dibosh ti Mohan - 2 and 1 Tweenty One";
+    hints[23] = "Esheche sundori dicche sursuri - 2 and three tweenty three";
+    hints[27] = "You r closer to Heven, 2 and 7 Twenty Seven";
+    hints[29] = "Gamsa pete tash khela - mone pore - 2 and 9 twenty nine";
+    hints[30] = "Reckless Beatuty 3 and 0 thirty";
+    hints[34] = "Eksathe holo 3 chor, 3 and 4, thirty four";
+    hints[52] = "Vasha Andolon 1952";
+    hints[69] = "Ulta Palta Line - 6 and 9 Sixty Nine";
+    hints[71] = "Palie Gelo Khan, 7 and 1 Seventy One";
+
+
     var totalNumbers = 90;
     var slots = _.range(1, 1 + totalNumbers);
     var history = [];
@@ -23,6 +49,8 @@ $(document).ready(function () {
             fontSize: 0
         }, animationDuration/2* 1000, function() {
             $(".counter").text(n);
+            $(".hint").text(hints[n]);
+
             $(".counter").animate({
                 fontSize: '40vh'
             }, animationDuration/2* 1000);
