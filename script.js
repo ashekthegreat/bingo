@@ -59,13 +59,21 @@ $(document).ready(function () {
     }
 
     $(".clear").click(function(){
-        localStorage.removeItem("activeItems");
-        history = [];
-        $(".slot").removeClass("active");
-        $(".history").empty();
-        //counter.setNumber(0);
-        setNumber(0);
-        disableButton(false);
+        var response = confirm("Are you sure you want to clear history and start a new game?");
+        if (response) {
+            localStorage.removeItem("activeItems");
+            localStorage.removeItem("soldCount");
+            $("#sold").val("");
+            $("#row-prize").val("");
+            $("#full-house-prize").val("");
+
+            history = [];
+            $(".slot").removeClass("active");
+            $(".history").empty();
+            //counter.setNumber(0);
+            setNumber(0);
+            disableButton(false);
+        }
     });
     $(".counter").click(function(){
         var docEl = window.document.documentElement;
@@ -97,6 +105,8 @@ $(document).ready(function () {
 
         $("#row-prize").val(rowPrize);
         $("#full-house-prize").val(fullHousePrize);
+
+        localStorage.soldCount = sold;
     });
 
     function loadFromLocalStorage(){
@@ -107,6 +117,16 @@ $(document).ready(function () {
                 //counter.setNumber(activeItems[activeItems.length-1]);
                 setNumber(activeItems[activeItems.length-1]);
             }
+        } else{
+            setNumber(0);
+        }
+
+        if(localStorage.soldCount){
+            $("#sold").val(+localStorage.soldCount);
+            $("#calculate").click();
+        } else{
+            $("#sold").val();
+
         }
     }
     loadFromLocalStorage();
